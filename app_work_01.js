@@ -11,9 +11,9 @@ function MsgController($scope) {
 
   // Count elements in text (filter)
   function CountElement() {
-    return $scope.text.split(',').
-           filter(function(x){ return x.trim() != ""}).
-           length;
+    return $scope.text.split(',')
+      .filter(function(x){ return x.trim() != ""})
+      .length;
   }
 
   // Change message after clicking on the button
