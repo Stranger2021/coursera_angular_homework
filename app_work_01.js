@@ -35,7 +35,6 @@ function MsgController($scope) {
       { $scope.sayMessage = "Too much!"; }
   }
 }
-
 })();
 
 // (function () {
