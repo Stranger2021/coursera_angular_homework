@@ -9,16 +9,11 @@ function MsgController($scope) {
   $scope.text = "";         // Text in input
   $scope.sayMessage = "";   // Result Message
 
-  // Count elements in text
+  // Count elements in text (filter)
   function CountElement() {
-    var elements_source = $scope.text.split(',');
-    var iCount = 0;
-
-    elements_source.forEach((item, i) => {
-      if (item.trim() != "") iCount++;
-    });
-
-    return iCount;
+    return $scope.text.split(',').
+           filter(function(x){ return x.trim() != ""}).
+           length;
   }
 
   // Change message after clicking on the button
@@ -28,7 +23,7 @@ function MsgController($scope) {
     if (iCount == 0)
       { $scope.sayMessage = "Please enter data first"; }
 
-    else if (CountElement()<=3)
+    else if (iCount<=3)
       { $scope.sayMessage = "Enjoy!"; }
 
     else
@@ -36,25 +31,3 @@ function MsgController($scope) {
   }
 }
 })();
-
-// (function () {
-// 'use strict';
-//
-// angular.module('MsgApp', [])
-// .controller('MsgController', MsgController);
-//
-// MsgController.$inject = ['$scope'];
-// function MsgController($scope) {
-//   $scope.name = "Yaakov";
-//   $scope.stateOfBeing = "hungry";
-//
-//   $scope.sayMessage = function () {
-//     return "Yaakov likes to eat healthy snacks at night!";
-//   };
-//
-//   $scope.feedYaakov = function () {
-//     $scope.stateOfBeing = "fed";
-//   };
-// }
-//
-// })();
